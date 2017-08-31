@@ -1,0 +1,154 @@
+(use 'drools.rules.RuleRunner)
+(-main)
+  (def knowledge-session (build-knowledge-session))
+ 
+    ;; Create a Temperature fact
+    (def shouldBeTooHot
+      (drools.model.Temperature. 100))
+ 
+    ;; Create another Temperature fact
+    (def shouldBeTooCold
+      (drools.model.Temperature. 20))
+ 
+    ;; Insert the facts & fire all rules
+    (doto knowledge-session
+      (.insert shouldBeTooHot)
+      (.insert shouldBeTooCold)
+      (.fireAllRules))
+(def m (-main)
+)
+(println m)
+(print m)
+shouldBeTooCold
+(.getValue shouldBeTooCold)
+ (def knowledge-builder
+    (org.drools.builder.KnowledgeBuilderFactory/newKnowledgeBuilder))
+ 
+  ;; Adding the Weather Rules definition
+  ;; to the KnowledgeBuilder
+  (.add knowledge-builder
+    (org.drools.io.ResourceFactory/newClassPathResource
+       "WeatherRules.drl")
+     org.drools.builder.ResourceType/DRL)
+ 
+knowledge-builder
+(quit)
+(-main)
+(quit)
+(def ks (org.kie.api.KieServices$Factory/get))
+(def container ^org.kie.api.runtime.KieContainer (.getKieClasspathContainer ks))
+container
+(.getKieBase container)
+(quit)
+(def ks (org.kie.api.KieServices$Factory/get))
+(def container (.. ks getKieClasspathContainer))
+(def ksesson (.. container newKieSession))
+(def shouldBeTooHot
+  (drools.model.Temperature. 100))
+;; Create another Temperature fact
+(def shouldBeTooCold
+  (drools.model.Temperature. 20))
+(.insert ksesson shouldBeTooCold)
+(.insert ksesson shouldBeTooHot)
+(.fireAllRules ksesson)
+shouldBeTooHot
+ksesson
+(def ksesson (.. container newKieSession))
+ksesson
+(def shouldBeTooHot
+  (drools.model.Temperature. 100))
+(.insert ksesson shouldBeTooHot)
+(.fireAllRules ksesson)
+container
+(.verify container)
+intln(        temp.value.toString() + \" F is too hot.\"        + \" Declare HEAT WARNING!\");:\n[Error: unable to resolve method using strict-mode: double.toString()]\n[Near : {... (        temp.value.toString() + \" F is too hot.\" ....}]\n                                 ^\n[Line: 5, Column: 0]]\nMessage [id=2, kieBase=defaultKieBase, level=ERROR, path=WeatherRules.drl, line=15, column=0\n   text=Unable
+(def ksesson (.. container newKieSession))
+ksesson
+(def ks (org.
+))
+(def ks (org.kie.api.KieServices$Factory/get))
+(def container (.. ks getKieClasspathContainer))
+(def ksesson (.. container newKieSession))
+(def shouldBeTooHot
+  (drools.model.Temperature. 100))
+;; Create another Temperature fact
+(def shouldBeTooCold
+  (drools.model.Temperature. 20))
+(quit)
+(def ks (org.kie.api.KieServices$Factory/get))
+(def container (.. ks getKieClasspathContainer))
+(def ksesson (.. container newKieSession))
+quit
+(def ks (org.kie.api.KieServices$Factory/get))
+(def container (.. ks getKieClasspathContainer))
+(def ksesson (.. container newKieSession))
+(quit)
+(def ks (org.kie.api.KieServices$Factory/get))
+(def container (.. ks getKieClasspathContainer))
+(def ksesson (.. container newKieSession))
+(def shouldBeTooHot
+  (drools.model.Temperature. 100))
+;; Create another Temperature fact
+(def shouldBeTooCold
+  (drools.model.Temperature. 20))
+(.insert ksesson shouldBeTooCold)
+(.insert ksesson shouldBeTooHot)
+(.fireAllRules ksesson)
+(use 'drools.rules.Main)
+(def status (atom {}))
+(defn init []
+  "init"
+  (let [kieservice (org.kie.api.KieServices$Factory/get)
+        kiecontainer  (.. kieservice getKieClasspathContainer)
+        ksesson (.. kiecontainer newKieSession)]
+    (swap! status assoc :kieservice kieservice)
+    (swap! status assoc :kiecontainer kiecontainer)
+    (swap! status assoc :ksesson ksesson)))
+(init)
+(def status (atom {}))
+(defn init []
+  "init"
+  (let [kieservice (org.kie.api.KieServices$Factory/get)
+        kiecontainer  (.. kieservice getKieClasspathContainer)
+        ksesson (.. kiecontainer newKieSession)]
+    (swap! status assoc :kieservice kieservice)
+    (swap! status assoc :kiecontainer kiecontainer)
+    (swap! status assoc :ksesson ksesson)))
+(init)
+(defn testFireRule []
+  "Test Fire Rules"
+  (let [shouldBeTooHot (drools.model.Temperature. 100)
+        shouldBeTooCold (drools.model.Temperature. 20)]
+    (.insert (:ksesson @status) shouldBeTooCold)
+    (.insert (:ksesson @status) shouldBeTooHot)
+    (.fireAllRules (:ksesson ksesson))))
+(defn testFireRule []
+  "Test Fire Rules"
+  (let [shouldBeTooHot (drools.model.Temperature. 100)
+        shouldBeTooCold (drools.model.Temperature. 20)]
+    (.insert (:ksesson @status) shouldBeTooCold)
+    (.insert (:ksesson @status) shouldBeTooHot)
+    (.fireAllRules (:ksesson @status))))
+(testFireRule)
+@status
+(init)
+(testFireRule)
+(defn testFireRule1 []
+  "Test Fire Rules"
+  (let [shouldBeTooHot (drools.model.Temperature. 100)
+        shouldBeTooCold (drools.model.Temperature. 199)]
+    (.insert (:ksesson @status) shouldBeTooCold)
+    (.insert (:ksesson @status) shouldBeTooHot)
+    (.fireAllRules (:ksesson @status))))
+(testFireRule2)
+(testFireRule1)
+(testFireRule)
+status
+(defn testFireRule2 []
+  "Test Fire Rules"
+  (let [shouldBeTooHot (drools.model.Temperature. 1)
+        shouldBeTooCold (drools.model.Temperature. 2)]
+    (.insert (:ksesson @status) shouldBeTooCold)
+    (.insert (:ksesson @status) shouldBeTooHot)
+    (.fireAllRules (:ksesson @status))))
+(testFireRule2)
