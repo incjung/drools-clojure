@@ -7,7 +7,7 @@ rule "Too Hot"
    when
       temp : Temperature( value > 85 )
    then
-      System.out.println(
+      System.out.println( temp.getValue() +
         " F is too hot." + " Declare HEAT WARNING!"); 
 end
 
